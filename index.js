@@ -21,6 +21,11 @@ app.post('/submit', (req, res) => {
     const data = req.body;
     res.send(`Received: ${JSON.stringify(data)}`);
 });
+app.post('/items', (req, res) => {
+    const newItem = req.body.item;
+    items.push(newItem);
+    res.json(items);
+})
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
